@@ -9,8 +9,8 @@ If node is not installed check how to install node in google.
 Then run these commands:
 ```
 npm install
-npm start:client
-npm start
+npm run start:client
+npm run start
 ```
 
 Open in browser http://localhost:8000

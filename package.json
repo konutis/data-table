@@ -2,10 +2,9 @@
   "name": "data-table",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "start:client": "webpack-dev-server --config webpack.config.js",
-    "start": "babel-watch ./src_server/index.js"
+    "start": "node ./src_server/index.js"
   },
   "author": "Janis Konutis",
   "license": "ISC",
