@@ -1,0 +1,15 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 30px;
+  background-color: #eee;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.main-container {
+  max-width: 800px;
+  margin: auto;
+}

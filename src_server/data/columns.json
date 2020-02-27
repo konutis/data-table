@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Name",
+    "field": "name"
+  },
+  {
+    "title": "Age",
+    "field": "age"
+  },
+  {
+    "title": "MX brand",
+    "field": "brand"
+  },
+  {
+    "title": "Plate number",
+    "field": "plateNumber"
+  },
+  {
+    "title": "Country",
+    "field": "country"
+  }
+]

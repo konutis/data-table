@@ -1,0 +1,41 @@
+.table {
+  margin: 30px 0;
+}
+
+.table-header .table-cell {
+  font-weight: bold;
+}
+
+.table-header,
+.table-row {
+  display: flex;
+  position: relative;
+  padding-left: 60px;
+  border: 1px solid #444;
+}
+
+.table-row {
+  border-top: none;
+}
+
+.table-cell {
+  padding: 15px;
+  flex-grow: 1;
+  border-right: 1px solid #444;
+}
+
+.table-cell:last-child {
+  border: none;
+}
+
+.table-cell--controls {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
