@@ -15,7 +15,8 @@ class App {
         this.handleRemoveClick = this.handleRemoveClick.bind(this);
         this.handleAddClick = this.handleAddClick.bind(this);
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
-        this.handleOusideModalClick = this.handleOusideModalClick.bind(this);
+        this.handleOutsideModalClick = this.handleOutsideModalClick.bind(this);
+        this.handleEscapePress = this.handleEscapePress.bind(this);
 
         const tableRootElement = document.querySelector('#table');
         this.tableInstance = new Table(tableRootElement, {
@@ -97,12 +98,19 @@ class App {
         }
         this.requestData = requestData;
         this.modal.classList.add('modal--visible');
-        this.modalInner.addEventListener('click', this.handleOusideModalClick);
         this.modalForm.addEventListener('submit', this.handleFormSubmit);
         this.closeModalButton.addEventListener('click', this.handleModalClose);
+        this.modalInner.addEventListener('click', this.handleOutsideModalClick);
+        document.body.addEventListener('keydown', this.handleEscapePress);
     }
 
-    handleOusideModalClick(e) {
+    handleEscapePress(e) {
+        if(e.key === "Escape"){
+            this.handleModalClose();
+        }
+    }
+
+    handleOutsideModalClick(e) {
         if (e.target.classList.contains('modal-inner')) {
             this.handleModalClose();
         }
@@ -113,7 +121,8 @@ class App {
         this.modal.classList.remove('modal--visible');
         this.modalForm.removeEventListener('submit', this.handleFormSubmit);
         this.closeModalButton.removeEventListener('click', this.handleModalClose);
-        this.modalInner.removeEventListener('click', this.handleOusideModalClick);
+        this.modalInner.removeEventListener('click', this.handleOutsideModalClick);
+        document.body.removeEventListener('keydown', this.handleEscapePress);
         const fieldsList = [].slice.call(this.modalForm.querySelectorAll('.form-field-input'));
         window.location.hash = '';
         fieldsList.forEach((field) => {
