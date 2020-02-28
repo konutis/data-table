@@ -5,7 +5,8 @@
   },
   {
     "title": "Age",
-    "field": "age"
+    "field": "age",
+    "type": "number"
   },
   {
     "title": "MX brand",
@@ -13,7 +14,8 @@
   },
   {
     "title": "Plate number",
-    "field": "plateNumber"
+    "field": "plateNumber",
+    "type": "number"
   },
   {
     "title": "Country",

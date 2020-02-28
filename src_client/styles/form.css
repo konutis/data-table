@@ -6,7 +6,6 @@
   align-items: center;
   color: #333;
   padding: 50px 30px 40px;
-  border-radius: 4px;
   width: 400px;
   max-width: 100%;
   position: relative;
@@ -18,7 +17,6 @@
 
 .form-field {
   margin-bottom: 20px;
-  font-size: 16px;
 }
 
 .form-field-label {
@@ -30,8 +28,18 @@
   display: block;
   width: 100%;
   color: #666;
-  font-size: 16px;
+  font-size: 14px;
   padding: 8px 10px;
-  border-radius: 3px;
   border: 1px solid #9E9E9E;
+  transition: border-color .2s;
+}
+
+.form-field-input:hover,
+.form-field-input:focus {
+  border-color: #54bffd;
+}
+
+.form .button {
+  width: 100%;
+  margin-top: 15px;
 }

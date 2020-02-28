@@ -2,6 +2,10 @@
   margin: 30px 0;
 }
 
+.table-header {
+  background: #efefef;
+}
+
 .table-header .table-cell {
   font-weight: bold;
 }
@@ -11,17 +15,18 @@
   display: flex;
   position: relative;
   padding-left: 60px;
-  border: 1px solid #444;
+  border: 1px solid #9c9c9c;
 }
 
 .table-row {
   border-top: none;
+  background: #fff;
 }
 
 .table-cell {
-  padding: 15px;
+  padding: 10px 15px;
   flex-grow: 1;
-  border-right: 1px solid #444;
+  border-right: 1px solid #9c9c9c;
 }
 
 .table-cell:last-child {
@@ -38,4 +43,30 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.row-control {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  opacity: .5;
+  transition: opacity .2s;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.row-control:hover,
+.row-control:focus {
+  opacity: .7;
+}
+
+.row-control--edit {
+  background: transparent url(../assets/edit.svg) center no-repeat;
+  background-size: 15px;
+}
+
+.row-control--remove {
+  background: transparent url(../assets/trash.svg) center no-repeat;
+  background-size: 15px;
 }

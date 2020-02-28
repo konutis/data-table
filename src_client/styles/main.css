@@ -2,14 +2,35 @@
   box-sizing: border-box;
 }
 
+html {
+  min-height: 100%;
+}
+
 body {
   padding: 30px;
-  background-color: #eee;
+  background-image: linear-gradient(45deg, rgba(26, 41, 128, .7), rgba(38, 208, 206, .7));
   margin: 0;
   font-family: Arial, sans-serif;
+  min-height: 100%;
+  font-size: 14px;
 }
 
 .main-container {
   max-width: 800px;
   margin: auto;
+}
+
+.button {
+  padding: 15px 20px;
+  font-size: 14px;
+  border: none;
+  background: #09966e;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color .2s;
+}
+
+.button:focus,
+.button:hover {
+  background: #098662;
 }

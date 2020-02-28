@@ -85,7 +85,7 @@ export default class Table {
 
         // Edit control
         const editButton = document.createElement('button');
-        editButton.innerText = 'E';
+        editButton.title = 'Edit';
         editButton.type = 'button';
         editButton.className = 'row-control row-control--edit';
         editButton.addEventListener('click', this.config.onEditClick.bind(this, rowSettings));
@@ -93,7 +93,7 @@ export default class Table {
 
         // Remove control
         const removeButton = document.createElement('button');
-        removeButton.innerText = 'R';
+        removeButton.title = 'Remove';
         removeButton.type = 'button';
         removeButton.className = 'row-control row-control--remove';
         removeButton.addEventListener('click', this.config.onRemoveClick.bind(this, rowSettings));

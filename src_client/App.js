@@ -69,7 +69,7 @@ class App {
         this.columnData.forEach((column) => {
             const fieldHtml = `<div class="form-field">
                 <label for="${column.field}-input" class="form-field-label">${column.title}</label>
-                <input type="text" id="${column.field}-input" class="form-field-input">
+                <input type="${column.type || 'text'}" required type="text" id="${column.field}-input" class="form-field-input">
             </div>`;
             formFieldWrapper.insertAdjacentHTML('beforeend', fieldHtml);
         });
@@ -184,21 +184,24 @@ class App {
     }
 
     handleRemoveClick(rowData) {
-        window.fetch(`${defaultUrl}/posts/${rowData.id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then((result) => {
-            return result.json();
-        }).then((result) => {
-            if (result && result.content && result.content.id) {
-                this.tableInstance.removeRow(result.content.id);
-                console.info(result.message);
-            } else {
-                console.error(result.message);
-            }
-        });
+        if (window.confirm('Are you sure you want to remove this entry?')) {
+            window.fetch(`${defaultUrl}/posts/${rowData.id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then((result) => {
+                return result.json();
+            }).then((result) => {
+                if (result && result.content && result.content.id) {
+                    this.tableInstance.removeRow(result.content.id);
+                    console.info(result.message);
+                } else {
+                    console.error(result.message);
+                }
+            });
+        }
+
     }
 }
 
