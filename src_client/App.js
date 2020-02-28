@@ -59,6 +59,7 @@ class App {
     initModal() {
         const addButton = document.querySelector('#add-entry');
         this.modal = document.querySelector('.modal');
+        this.modal.style.display = '';
         this.modalForm = document.querySelector('.form');
         const formFieldWrapper = document.querySelector('.form-fields-container');
 
