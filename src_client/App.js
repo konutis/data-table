@@ -124,7 +124,7 @@ class App {
         this.modalInner.removeEventListener('click', this.handleOutsideModalClick);
         document.body.removeEventListener('keydown', this.handleEscapePress);
         const fieldsList = [].slice.call(this.modalForm.querySelectorAll('.form-field-input'));
-        window.location.hash = '';
+        window.location.hash = 'null';
         fieldsList.forEach((field) => {
             field.value = '';
         });
