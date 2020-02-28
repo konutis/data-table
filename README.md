@@ -14,3 +14,8 @@ npm run start
 ```
 
 Open in browser http://localhost:8000
+
+Running tests
+```
+npm run test
+```
