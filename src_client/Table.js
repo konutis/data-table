@@ -4,7 +4,7 @@ export default class Table {
     constructor(rootElem, config) {
         this.rootElem = rootElem;
         const defaultConfig = {
-            width: 250
+            width: 150
         };
         this.config = Object.assign(defaultConfig, config);
     }
@@ -58,7 +58,7 @@ export default class Table {
         this.createRowControls(rowElement, rowSettings);
 
         this.columns.forEach((headerCol) => {
-            this.buildCell(rowElement, {html: rowSettings[headerCol.field]}, headerCol)
+            this.buildCell(rowElement, {html: rowSettings[headerCol.field]}, headerCol, true)
         });
 
         if (addRowPos === 'top') {
@@ -68,10 +68,15 @@ export default class Table {
         }
     }
 
-    buildCell(rowElement, cellSettings, columnSettings) {
+    buildCell(rowElement, cellSettings, columnSettings, setLabels = false) {
         const cellElement = document.createElement('div');
         cellElement.className = 'table-cell';
         cellElement.innerHTML = cellSettings.html;
+        cellElement.title = cellSettings.html;
+
+        if (setLabels) {
+            cellElement.setAttribute('data-label', columnSettings.title);
+        }
 
         cellElement.style.width = `${columnSettings.width || this.config.width}px`;
 

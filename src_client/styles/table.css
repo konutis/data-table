@@ -1,9 +1,11 @@
 .table {
   margin: 30px 0;
+  font-size: 12px;
 }
 
 .table-header {
   background: #efefef;
+  display: none;
 }
 
 .table-header .table-cell {
@@ -12,21 +14,47 @@
 
 .table-header,
 .table-row {
-  display: flex;
   position: relative;
   padding-left: 60px;
   border: 1px solid #9c9c9c;
 }
 
 .table-row {
+  display: block;
   border-top: none;
   background: #fff;
+  margin-bottom: 10px;
 }
 
 .table-cell {
   padding: 10px 15px;
   flex-grow: 1;
-  border-right: 1px solid #9c9c9c;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.table-body .table-cell:not(.table-cell--controls) {
+  padding-left: 50%;
+  padding-right: 0;
+  min-width: 50%;
+  max-width: 50%;
+  border-bottom: 1px solid #9c9c9c;
+  box-sizing: content-box;
+}
+
+.table-body .table-cell:not(.table-cell--controls):last-child {
+  border-bottom: none;
+}
+
+.table-body .table-cell:before {
+  content: attr(data-label);
+  position: absolute;
+  left: 70px;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .table-cell:last-child {
@@ -43,6 +71,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-right: 1px solid #9c9c9c;
+  flex-direction: column;
 }
 
 .row-control {
@@ -53,7 +83,7 @@
   opacity: .5;
   transition: opacity .2s;
   cursor: pointer;
-  margin: 2px;
+  margin: 6px;
 }
 
 .row-control:hover,
@@ -69,4 +99,48 @@
 .row-control--remove {
   background: transparent url(../assets/trash.svg) center no-repeat;
   background-size: 15px;
+}
+
+@media screen and (min-width: 400px) {
+  .table {
+    font-size: 14px;
+  }
+
+  .table-body .table-cell:before {
+    left: 80px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .table-header {
+    display: flex;
+  }
+  .table-body .table-cell:before {
+    display: none;
+  }
+
+  .table-row {
+    display: flex;
+    margin-bottom: 0;
+  }
+
+  .table-body .table-cell:not(.table-cell--controls) {
+    padding: 10px 15px;
+    min-width: unset;
+    max-width: 100%;
+    box-sizing: border-box;
+    border-bottom: none;
+  }
+
+  .table-cell {
+    border-right: 1px solid #9c9c9c;
+  }
+
+  .table-cell--controls {
+    flex-direction: row;
+  }
+
+  .row-control {
+    margin: 2px;
+  }
 }
