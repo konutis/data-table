@@ -34,7 +34,7 @@
   background-size: cover;
   color: #fff;
   overflow: hidden;
-  padding: 70px 20px 55px;
+  padding: 20px 20px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -46,6 +46,6 @@
 
 .modal-close-button {
   position: absolute;
-  right: 30px;
-  top: 30px;
+  right: 20px;
+  top: 20px;
 }

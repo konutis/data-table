@@ -5,14 +5,15 @@
   justify-content: center;
   align-items: center;
   color: #333;
-  padding: 40px 30px;
+  padding: 50px 30px 40px;
   border-radius: 4px;
   width: 400px;
   max-width: 100%;
+  position: relative;
 }
 
 .form-fields-container {
-  max-width: 100%;
+  width: 100%;
 }
 
 .form-field {
@@ -27,8 +28,7 @@
 
 .form-field-input {
   display: block;
-  width: 260px;
-  max-width: 100%;
+  width: 100%;
   color: #666;
   font-size: 16px;
   padding: 8px 10px;

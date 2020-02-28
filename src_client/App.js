@@ -15,6 +15,7 @@ class App {
         this.handleRemoveClick = this.handleRemoveClick.bind(this);
         this.handleAddClick = this.handleAddClick.bind(this);
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
+        this.handleOusideModalClick = this.handleOusideModalClick.bind(this);
 
         const tableRootElement = document.querySelector('#table');
         this.tableInstance = new Table(tableRootElement, {
@@ -59,6 +60,7 @@ class App {
     initModal() {
         const addButton = document.querySelector('#add-entry');
         this.modal = document.querySelector('.modal');
+        this.modalInner = document.querySelector('.modal-inner');
         this.modal.style.display = '';
         this.modalForm = document.querySelector('.form');
         const formFieldWrapper = document.querySelector('.form-fields-container');
@@ -95,8 +97,15 @@ class App {
         }
         this.requestData = requestData;
         this.modal.classList.add('modal--visible');
+        this.modalInner.addEventListener('click', this.handleOusideModalClick);
         this.modalForm.addEventListener('submit', this.handleFormSubmit);
         this.closeModalButton.addEventListener('click', this.handleModalClose);
+    }
+
+    handleOusideModalClick(e) {
+        if (e.target.classList.contains('modal-inner')) {
+            this.handleModalClose();
+        }
     }
 
     handleModalClose() {
@@ -104,6 +113,7 @@ class App {
         this.modal.classList.remove('modal--visible');
         this.modalForm.removeEventListener('submit', this.handleFormSubmit);
         this.closeModalButton.removeEventListener('click', this.handleModalClose);
+        this.modalInner.removeEventListener('click', this.handleOusideModalClick);
         const fieldsList = [].slice.call(this.modalForm.querySelectorAll('.form-field-input'));
         window.location.hash = '';
         fieldsList.forEach((field) => {
